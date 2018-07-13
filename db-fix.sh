@@ -1,0 +1,1 @@
+for i in `find -iname wp-config.php` ; do j=$(grep 'DB_NAME' $i | awk -F "'" '{print $4}') ; k=$(grep 'DB_USER' $i | awk -F "'" '{print $4}') ;l=$(grep 'DB_PASSWORD' $i | awk -F "'" '{print $4}') ; echo GRANT ALL PRIVILEGES ON $j.* TO $k@"localhost" identified by "'$l'"";" ; done
